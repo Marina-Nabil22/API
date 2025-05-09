@@ -3,6 +3,7 @@ using DomainLayer.Contracts;
 using DomainLayer.Models;
 using ServiceAbstraction;
 using Services.Specifications;
+using Shared;
 using Shared.DateTransfrObjects;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ProductDto>> GetAllProductsAsync(int? BrandId,int?TypeId)
+        public async Task<IEnumerable<ProductDto>> GetAllProductsAsync(int? BrandId,int?TypeId, ProductSortingOptions sortingOption)
         {
             
 
