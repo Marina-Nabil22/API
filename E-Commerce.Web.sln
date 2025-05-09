@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Commerce.Web", "E-Commerce.Web.csproj", "{7B62DFD4-BFBF-4922-A9E3-ED04FE42B662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.Web", "E-Commerce.Web.csproj", "{7B62DFD4-BFBF-4922-A9E3-ED04FE42B662}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EBEF5D1B-8115-4CB3-803E-6FEA880AE288}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "Core\DomainLayer\DomainLayer.csproj", "{71D36493-AFB3-40EF-955A-0F8C16A4F98B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLayer", "Core\DomainLayer\DomainLayer.csproj", "{71D36493-AFB3-40EF-955A-0F8C16A4F98B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Core\Service\Service.csproj", "{FF319A57-85F7-49BA-8EB0-9DC98A89793C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Core\Service\Services.csproj", "{FF319A57-85F7-49BA-8EB0-9DC98A89793C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceAbstraction", "Core\ServiceAbstraction\ServiceAbstraction.csproj", "{BFAFAD69-DD30-4B3E-91C1-875579EE6106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceAbstraction", "Core\ServiceAbstraction\ServiceAbstraction.csproj", "{BFAFAD69-DD30-4B3E-91C1-875579EE6106}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{64C6BA8D-EAD1-4EF5-B24B-DC5DCD5BB88E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{FD8A267D-9F22-4E1D-8A46-4CA2DB3049F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{FD8A267D-9F22-4E1D-8A46-4CA2DB3049F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Infrastructure\Presentation\Presentation.csproj", "{997E767D-F370-4D9F-BCF5-C57EF649F59B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Infrastructure\Presentation\Presentation.csproj", "{997E767D-F370-4D9F-BCF5-C57EF649F59B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{983907B6-6954-41AB-B027-47B2CAB7499C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{983907B6-6954-41AB-B027-47B2CAB7499C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

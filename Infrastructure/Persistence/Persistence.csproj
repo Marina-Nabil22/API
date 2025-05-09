@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
 <ProjectReference Include="..\..\Core\DomainLayer\DomainLayer.csproj" />
-<ProjectReference Include="..\..\Core\Service\Service.csproj" />
+<ProjectReference Include="..\..\Core\Service\Services.csproj" />
 
   </ItemGroup>
 

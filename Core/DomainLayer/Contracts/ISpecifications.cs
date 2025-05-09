@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Contracts
 {
-    public interface IDataSeeding
+    internal interface ISpecifications
     {
-        Task DataSeedAsync();
     }
 }

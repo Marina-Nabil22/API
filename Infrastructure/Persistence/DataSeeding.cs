@@ -20,25 +20,27 @@ namespace Persistence
             _dbContext = dbContext;
         }
 
-        public void DataSeed()
+        public async Task DataSeedAsync()
         {
             try
             {
-                if (_dbContext.Database.GetPendingMigrations().Any()) // Fixed typo here
+                var PendingMigrations = await _dbContext.Database.GetPendingMigrationsAsync();
+                if (PendingMigrations.Any()) // Fixed typo here
                 {
-                    _dbContext.Database.Migrate();
+                    await _dbContext.Database.MigrateAsync();
                 }
 
-                Console.WriteLine("Checking for ProductBrands...");
 
                 if (!_dbContext.ProductBrands.Any())
                 {
                     Console.WriteLine("Seeding ProductBrands...");
-                    var ProductBrandData = File.ReadAllText(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\brands.json");
-                    var ProductBrands = JsonSerializer.Deserialize<List<ProductBrand>>(ProductBrandData);
+                    //  var ProductBrandData =await File.ReadAllTextAsync(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\brands.json");
+                    var ProductBrandData = File.OpenRead(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\brands.json");
+
+                    var ProductBrands = await JsonSerializer.DeserializeAsync<List<ProductBrand>>(ProductBrandData);
                     if (ProductBrands is not null && ProductBrands.Any())
                     {
-                        _dbContext.ProductBrands.AddRange(ProductBrands);
+                        await _dbContext.ProductBrands.AddRangeAsync(ProductBrands);
                     }
                 }
 
@@ -46,13 +48,13 @@ namespace Persistence
                 if (!_dbContext.ProductTypes.Any())
                 {
                     Console.WriteLine("Seeding ProductTypes...");
-                    var ProductTypeData = File.ReadAllText(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\types.json");
+                    var ProductTypeData = File.OpenRead(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\types.json");
 
-                    var ProductTypes = JsonSerializer.Deserialize<List<ProductType>>(ProductTypeData);
+                    var ProductTypes = await JsonSerializer.DeserializeAsync<List<ProductType>>(ProductTypeData);
 
                     if (ProductTypes is not null && ProductTypes.Any())
                     {
-                        _dbContext.ProductTypes.AddRange(ProductTypes);
+                        await _dbContext.ProductTypes.AddRangeAsync(ProductTypes);
                     }
 
                 }
@@ -61,30 +63,28 @@ namespace Persistence
                 if (!_dbContext.Products.Any())
                 {
                     Console.WriteLine("Seeding Products...");
-                    var ProductData = File.ReadAllText(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\products.json");
+                    var ProductData = File.OpenRead(@"C:\Users\ASUS\source\repos\E-Commerce.Web\Infrastructure\Persistence\Data\DataSeed\products.json");
 
-                    var Products = JsonSerializer.Deserialize<List<Product>>(ProductData);
+                    var Products = await JsonSerializer.DeserializeAsync<List<Product>>(ProductData);
 
                     if (Products is not null && Products.Any())
                     {
-                        _dbContext.Products.AddRange(Products);
+                        await _dbContext.Products.AddRangeAsync(Products);
                     }
 
                 }
 
                 Console.WriteLine("Saving data to the database...");
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 Console.WriteLine("Database seeding completed.");
 
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
                 Console.WriteLine($"Error during data seeding: {ex.Message}");
             }
-
         }
-
-     
     }
 }

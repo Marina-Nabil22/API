@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayer.Contracts
+namespace Services.Specifications
 {
-    public interface IDataSeeding
+    internal class BaseSpecifications
     {
-        Task DataSeedAsync();
     }
 }
